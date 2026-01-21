@@ -1,24 +1,22 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Stack } from "expo-router";
+import { useState } from "react";
+import { ThemeProvider } from "../src/theme/theme";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const [client] = useState(() => new QueryClient());
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
+    <ThemeProvider>
+      <QueryClientProvider client={client}>
+        <Stack screenOptions={{ headerTitleAlign: "center" }}>
+          <Stack.Screen name="index" options={{ title: "PocketBudget" }} />
+          <Stack.Screen name="transactions/index" options={{ title: "Lançamentos" }} />
+          <Stack.Screen name="transactions/new" options={{ title: "Novo lançamento" }} />
+          <Stack.Screen name="transactions/[id]" options={{ title: "Editar" }} />
+          <Stack.Screen name="settings" options={{ title: "Configurações" }} />
+        </Stack>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
