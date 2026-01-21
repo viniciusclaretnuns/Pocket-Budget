@@ -53,9 +53,14 @@ Construído com **Expo + React Native + TypeScript**, usando **armazenamento loc
 <img width="796" height="1600" alt="image" src="https://github.com/user-attachments/assets/b48d1b17-2fa8-4aa3-a35d-e5eda0a9c6dd" />
 <img width="796" height="1600" alt="image" src="https://github.com/user-attachments/assets/c23adc59-3ac4-4959-9ff0-042c0ccf2a52" />
 
-
 ---
 
+## Vídeo mostrando as funcionalidades
+
+[[Assista ao vídeo](https://github.com/user-attachments/assets/aa922361-83dd-41ac-9fe5-5d73c3432af4)]
+
+
+---
 
 ## Como rodar o projeto
 
